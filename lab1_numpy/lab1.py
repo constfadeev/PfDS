@@ -1,8 +1,10 @@
 import numpy as np #импортируем библиотеку
 
-y = np.loadtxt(fname='data.csv', delimiter=';', encoding='utf-8') #открываем файл с данными
+y = np.loadtxt(fname='data.csv', delimiter=';') #открываем файл с данными
 y_max, y_min = np.max(y), np.min(y) #находим максимум и минимум
-y_max_ix = np.where(y == y_max) #находим индексы минимума
-y_min_ix = np.where(y == y_min) # и максимума
 
-y[y_max_ix[0][0], y_max_ix[1][0]],  y[y_min_ix[0][0], y_min_ix[1][0]] = y_min, y_max #меняем местами
+y = np.where(y == y_max, y_min-1, y) #заменяем в массиве все максимальные значения на минимальные-1 (это нужно для дальнейшей замены)
+y = np.where(y == y_min, y_max, y) #заменяем в массиве все мнимальные значения на максимальные
+y = np.where(y == y_min-1, y_min, y) #заменяем в массиве все мнимальные-1 значения на верные минимальные значения, опеделенные в начале скрипта
+
+print(y)
