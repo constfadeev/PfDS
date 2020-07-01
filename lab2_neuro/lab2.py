@@ -1,3 +1,5 @@
+'''Данный скрипт угадывает четное или нечетное число'''
+
 import numpy as np
 import glob
 from PIL import Image
