@@ -1,3 +1,5 @@
+'''Перцептрон, обучаясь на тренировочных данных, вычисляет какое число изображено на картинке в восьмеричной системе счисления'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import ndimage
